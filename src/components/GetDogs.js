@@ -8,15 +8,15 @@ class GetDogs extends Component {
 
 
     getData() {
-        const url = 'http://www.recipepuppy.com/api/?i=$&q=$'
+        const url = 'https://dog.ceo/api/breeds/list'
         
         fetch(url, {
             method: 'GET'
         })
         .then( response => response.json())
         .then( json => {
-            console.log('resualt', json.results)
-              this.props.getDog(json.results);
+            console.log('resualt', json.message)
+              this.props.getDog(json.message);
               console.log(this.props)
         })
     

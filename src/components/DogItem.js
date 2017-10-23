@@ -1,16 +1,24 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux';
+import { selectDog } from '../actions';
 
 class DogItem extends Component {
+
     render(){
         let { dogs }= this.props;
-        console.log('props', this.props)
         return(
-              <option>
-                   {dogs.title}
+                
+              <option value={dogs} >
+                   {dogs}
+                 
              </option>
+             
+           
+           
         )
     }
 }
+
+
 
 export default connect()(DogItem);
