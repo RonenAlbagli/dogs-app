@@ -23,7 +23,7 @@ class GetDogs extends Component {
             <div>
              <button onClick={() => this.getData()}>Get all dogs beed names</button>
                 <h1>Choose a dog from the list: </h1> 
-                <DogList/> 
+                <DogList dog={this.props.dog} /> 
             </div>
         )
     }

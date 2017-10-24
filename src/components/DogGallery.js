@@ -1,35 +1,51 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { getIMG } from '../actions';
+
 import { Form, FormGroup, FormControl, ControlLabel, Button} from 'react-bootstrap';
 
 class DogGallery extends Component {
+
+    constructor(){
+        super();
+
+        this.state ={ 
+            gallery: false
+        }
+    }
+
     render() {
         return(
-            <div>
+            <div  >
         <h1>Gallery</h1>
 
+        <h3>{this.props.data}</h3>
         <table>
             <tbody>
                 <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                </tr>
-            <tr>
-                <td>A</td>
-                <td>B</td>
-                <td>C</td>
-            </tr>
-            <tr>
-                <td>1A</td>
-                <td>2B</td>
-                <td>3C</td>
+                {
+                    this.props.IMG.map((getIMG => 
+                       
+                            <td>
+                                <img src={getIMG}/>
+                            </td>
+                        )
+                    )
+                }
+                
             </tr>
             </tbody>
         </table>
+
+        
         </div>
     )
     }
 }
-export default (DogGallery)
+
+
+function mapStateToProps(state) {
+    return state
+}
+export default connect(mapStateToProps, {getIMG}) (DogGallery)

@@ -3,33 +3,52 @@ import { connect } from 'react-redux';
 
 import { Form, FormGroup, FormControl, ControlLabel, Button} from 'react-bootstrap';
 
-import { selectDog } from '../actions';
-
-
-import { createStore } from 'redux';
-import rootReducer from '../reducers'
+import { selectDog ,getIMG } from '../actions';
 import DogGallery from './DogGallery'
+
+
+
+// import { getIMG } from '../actions';
+
+
+
+
+// const dogName ="";
 
 class DogList extends Component {
     constructor(){
         super();
+
         this.state ={ 
             selected: false,
-            p_dog : ""
+            p_dog : "",
+            IMG: []
         }
     }
+  
     selectedDog(dogs){
         this.props.selectDog(dogs.target.value);
         this.setState({p_dog:dogs.target.value});
-        console.log('p_dog:', this.state.p_dog);
-        console.log('store', this.props.getState);
+        this.DogList = dogs.target.value;
     }
 
-    ShowGallery(){
-        console.log(this.store.selectDog)
-        this.setState({selected:true})
-    }
+    searchDogPic(){
+        let breed =   this.DogList
+        console.log('breed', { breed })
+        const url = `https://dog.ceo/api/breed/${breed}/images`
+        console.log('url   ' , url);
 
+        fetch(url,{
+            method: 'GET'
+        })
+        .then( response => response.json())
+        .then( json => {
+            console.log('Images', json.message);
+            this.props.getIMG(json.message);
+            this.setState({selected:true, IMG: json.message})
+        });
+    }
+    
     render () {
         return(
             <div>
@@ -43,11 +62,11 @@ class DogList extends Component {
         })
     }   
                 </select>
-                <Button onClick={() =>this.ShowGallery()}>Show Dogs Picture</Button>
+                <Button onClick={() =>this.searchDogPic()}>Show Dogs Picture</Button>
                 {
                                     this.state.selected ?
                                         <div>
-                                          <DogGallery/>
+                                          <DogGallery data={this.state.p_dog} IMG={this.state.IMG}/>
                                        </div>
                                     :
                                     <div></div>
@@ -60,4 +79,4 @@ class DogList extends Component {
 function mapStateToProps(state) {
     return state;
 }
-export default connect(mapStateToProps,{ selectDog})(DogList);
+export default connect(mapStateToProps,{ selectDog, getIMG})(DogList);
