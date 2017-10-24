@@ -10,11 +10,8 @@ class App extends Component {
                 <h2>Dog App!</h2>
 
                 <GetDogs/>
-               
-              
             </div>
         )
     }
 }
-
 export default App

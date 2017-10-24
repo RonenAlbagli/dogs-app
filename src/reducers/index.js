@@ -9,7 +9,6 @@ function dogs( state =[], action) {
             return state;
     }
 }
-
 function selectDog ( state=[] , action) {
     switch (action.type) {
         case SELECT_DOG:

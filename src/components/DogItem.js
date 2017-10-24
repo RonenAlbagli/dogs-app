@@ -1,24 +1,44 @@
-import React , { Component } from 'react';
-import { connect } from 'react-redux';
-import { selectDog } from '../actions';
+// import React , { Component } from 'react';
+// import { connect } from 'react-redux';
+// import { selectDog } from '../actions';
 
-class DogItem extends Component {
+// class DogItem extends Component {
 
-    render(){
-        let { dogs }= this.props;
-        return(
+
+//     constructor() {
+//         super();
+
+//         this.state = {
+            
+//                     p_dog: "test"
+//                 }
+
+            
+//     }
+    
+//     selectedDog(dogs){
+//         console.log('dogs: ',dogs);
+
+        
+//     }
+
+
+
+//     render(){
+//         let { dogs }= this.props;
+//         return(
                 
-              <option value={dogs} >
-                   {dogs}
+//               <option value={dogs} onSelect={() =>this.selectedDog("dfd")}>
+//                    {dogs}
                  
-             </option>
+//              </option>
              
            
            
-        )
-    }
-}
+//         )
+//     }
+// }
 
 
 
-export default connect()(DogItem);
+// export default connect()(DogItem);
