@@ -1,0 +1,49 @@
+body {
+    text-align: center;
+    background-image: url('../pics/2.jpg');
+    height: 750px;
+    background-size: cover;
+    background-repeat: none;
+    opacity: 0.8; 
+}
+
+h2 {
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
+
+h3 {
+    color: white;
+   
+}
+
+img{
+    height: 200px;
+    width: 200px;
+}
+
+.DivIMG {
+    padding: 3%;
+    width: 200px;
+    height: 200px;
+    display: inline-flex;
+}
+
+.DDL {
+    
+    width: 50px;
+    display: inline-flex;
+    margin-right: 50px;
+}
+button {
+    margin-left:  5%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+
+select {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #868e96!important;
+    
+}
+

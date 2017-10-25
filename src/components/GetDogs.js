@@ -2,6 +2,8 @@ import React , { Component } from 'react';
 import { connect } from 'react-redux';
 import { getDog } from '../actions';
 
+import { Form, FormGroup, FormControl, ControlLabel, Button} from 'react-bootstrap';
+
 import DogList from './DogList';
 
 class GetDogs extends Component {
@@ -21,8 +23,8 @@ class GetDogs extends Component {
     render() {
        return(
             <div>
-             <button onClick={() => this.getData()}>Get all dogs beed names</button>
-                <h1>Choose a dog from the list: </h1> 
+             <button class="btn btn-info" onClick={() => this.getData()}>Get all dogs beed names</button>
+                <h2>Choose a dog from the list: </h2> 
                 <DogList dog={this.props.dog} /> 
             </div>
         )

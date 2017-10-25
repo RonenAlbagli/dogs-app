@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { GET_DOG,SELECT_DOG, GET_IMG } from '../actions'
+import { GET_DOG,SELECT_DOG, GET_IMG, FAV_DOG} from '../actions'
 
 function dogs( state =[], action) {
     switch(action.type){
@@ -28,6 +28,16 @@ function getIMG (state=[], action){
     }
 }
 
-const rootReducer = combineReducers({dogs, selectDog, getIMG});
+function favDog(state={}, action ) {
+    switch (action.type) {
+        case FAV_DOG:
+            state = [...state , action.dog]
+            return state;
+        default:
+            return state;
+    }
+}
+
+const rootReducer = combineReducers({dogs, selectDog, getIMG, favDog});
 
 export default rootReducer;

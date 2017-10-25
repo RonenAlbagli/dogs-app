@@ -1,7 +1,7 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getIMG } from '../actions';
+import { getIMG,favDog } from '../actions';
 
 import { Form, FormGroup, FormControl, ControlLabel, Button} from 'react-bootstrap';
 
@@ -18,25 +18,26 @@ class DogGallery extends Component {
     render() {
         return(
             <div  >
-        <h1>Gallery</h1>
 
-        <h3>{this.props.data}</h3>
-        <table>
-            <tbody>
-                <tr>
+
+        <h3 className='display-3'>{this.props.data}  gallery</h3>
+            <div>
                 {
+                    <div>
+                        {
                     this.props.IMG.map((getIMG => 
-                       
-                            <td>
-                                <img src={getIMG}/>
-                            </td>
+                       <div className='DivIMG'>
+                      
+                      
+                                <img class="img-thumbnail" hr src={getIMG} href={getIMG} key={getIMG} />
+                       </div>
                         )
                     )
                 }
-                
-            </tr>
-            </tbody>
-        </table>
+                    </div>
+                }
+            </div>
+
 
         
         </div>
@@ -48,4 +49,4 @@ class DogGallery extends Component {
 function mapStateToProps(state) {
     return state
 }
-export default connect(mapStateToProps, {getIMG}) (DogGallery)
+export default connect(mapStateToProps, {getIMG,favDog}) (DogGallery)

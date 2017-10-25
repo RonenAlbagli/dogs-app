@@ -6,15 +6,6 @@ import { Form, FormGroup, FormControl, ControlLabel, Button} from 'react-bootstr
 import { selectDog ,getIMG } from '../actions';
 import DogGallery from './DogGallery'
 
-
-
-// import { getIMG } from '../actions';
-
-
-
-
-// const dogName ="";
-
 class DogList extends Component {
     constructor(){
         super();
@@ -48,21 +39,24 @@ class DogList extends Component {
             this.setState({selected:true, IMG: json.message})
         });
     }
-    
+
     render () {
         return(
             <div>
-                <select  onChange={this.selectedDog.bind(this)}  >
+            <div className='DDL'>
+                <select className='dropdown-backdrop' onChange={this.selectedDog.bind(this)}  >
                 {
            this.props.dogs.map((dogs => 
-                    <option key={dogs} value={dogs}>
-                    {dogs}
+                    <option className='options ' key={dogs} value={dogs}>
+                        {dogs}
                     </option>)
                 )    
         })
+       
     }   
                 </select>
-                <Button onClick={() =>this.searchDogPic()}>Show Dogs Picture</Button>
+            </div>
+                <button className='btn btn-info' onClick={() =>this.searchDogPic()}>Show Dogs Picture</button>
                 {
                                     this.state.selected ?
                                         <div>
